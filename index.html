@@ -32,18 +32,20 @@
     font-family:'Inter', sans-serif;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling on small viewports */
   }
 
-  a{color:inherit;}
+  a{color:inherit; text-decoration: none;}
   a:focus-visible, button:focus-visible{
     outline:2px solid var(--amber);
     outline-offset:3px;
   }
 
   .wrap{
+    width: 100%;
     max-width:960px;
     margin:0 auto;
-    padding:0 28px;
+    padding:0 clamp(16px, 4vw, 28px); /* Responsive fluid padding */
   }
 
   code, .mono{ font-family:'JetBrains Mono', monospace; }
@@ -51,11 +53,11 @@
   /* ---------- HEADER ---------- */
   header.top{
     border-bottom:1px solid var(--rule);
-    padding:48px 0 34px;
+    padding: clamp(28px, 6vw, 48px) 0 clamp(20px, 4vw, 34px);
   }
   .status-line{
     display:flex;
-    justify-content:space-between;
+    justify-space:between;
     align-items:center;
     flex-wrap:wrap;
     gap:10px;
@@ -63,7 +65,7 @@
     font-size:12px;
     letter-spacing:0.04em;
     color:var(--muted);
-    margin-bottom:26px;
+    margin-bottom:20px;
   }
   .status-line .dot{
     display:inline-block;
@@ -76,12 +78,12 @@
   header.top h1{
     font-family:'Space Grotesk', sans-serif;
     font-weight:700;
-    font-size:clamp(38px, 6.5vw, 58px);
+    font-size:clamp(32px, 7vw, 58px);
     letter-spacing:-0.01em;
   }
   header.top .role{
     font-family:'JetBrains Mono', monospace;
-    font-size:14px;
+    font-size:clamp(13px, 2vw, 14px);
     color:var(--amber);
     margin-top:8px;
     letter-spacing:0.02em;
@@ -89,13 +91,24 @@
   header.top .bio{
     max-width:640px;
     color:#C6CBD3;
-    font-size:16px;
-    margin-top:20px;
+    font-size:clamp(14.5px, 2vw, 16px);
+    margin-top:16px;
   }
+  
+  .bio-list {
+    margin-top: 12px;
+    margin-left: 20px;
+    color: #C6CBD3;
+    font-size: clamp(14px, 1.8vw, 15px);
+  }
+  .bio-list li {
+    margin-bottom: 8px;
+  }
+
   .stack{
     display:flex;
     flex-wrap:wrap;
-    gap:9px;
+    gap:8px;
     margin-top:22px;
   }
   .stack span{
@@ -116,7 +129,7 @@
     letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--muted);
-    padding-top:46px;
+    padding-top: clamp(28px, 5vw, 46px);
     margin-bottom:22px;
     display:flex;
     align-items:center;
@@ -129,7 +142,7 @@
     background:var(--rule);
   }
 
-  /* ---------- PIPELINE DIAGRAM (signature element) ---------- */
+  /* ---------- PIPELINE DIAGRAM ---------- */
   .pipeline{
     padding:6px 0 8px;
   }
@@ -137,32 +150,33 @@
     display:flex;
     align-items:center;
     overflow-x:auto;
-    padding-bottom:6px;
+    padding-bottom:12px;
+    -webkit-overflow-scrolling: touch;
   }
   .stage{
     flex:0 0 auto;
     background:var(--panel);
     border:1px solid var(--rule);
     border-radius:4px;
-    padding:16px 18px;
-    min-width:128px;
+    padding:14px 16px;
+    min-width:110px;
     text-align:center;
   }
   .stage .icon{
     font-family:'JetBrains Mono', monospace;
     font-size:11px;
     color:var(--amber);
-    margin-bottom:8px;
+    margin-bottom:6px;
     letter-spacing:0.05em;
   }
   .stage .label{
     font-family:'Space Grotesk', sans-serif;
     font-weight:600;
-    font-size:14.5px;
+    font-size:14px;
   }
   .connector{
     flex:0 0 auto;
-    width:34px;
+    width:24px;
     height:1px;
     background:linear-gradient(90deg, var(--rule), var(--teal), var(--rule));
     position:relative;
@@ -181,7 +195,7 @@
     font-family:'JetBrains Mono', monospace;
     font-size:12px;
     color:var(--muted);
-    margin-top:14px;
+    margin-top:10px;
   }
   .pipeline-note b{ color:var(--teal); }
 
@@ -191,7 +205,7 @@
     background:var(--panel);
     border:1px solid var(--rule);
     border-radius:5px;
-    padding:26px 28px;
+    padding: clamp(18px, 4vw, 28px);
     margin-bottom:18px;
     position:relative;
   }
@@ -199,40 +213,39 @@
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-    gap:16px;
+    gap:12px;
     flex-wrap:wrap;
-    margin-bottom:10px;
+    margin-bottom:12px;
   }
   .project h3{
     font-family:'Space Grotesk', sans-serif;
     font-weight:600;
-    font-size:21px;
+    font-size: clamp(18px, 3vw, 21px);
   }
   .badge{
     font-family:'JetBrains Mono', monospace;
-    font-size:10.5px;
+    font-size:10px;
     letter-spacing:0.05em;
     text-transform:uppercase;
     color:var(--teal);
     border:1px solid rgba(87,184,168,0.4);
     padding:4px 10px;
     border-radius:20px;
-    white-space:nowrap;
+    white-space:normal; /* Allows wrapping on small phone screens if tag is long */
+    word-break: break-word;
   }
   .project p.desc{
     font-size:14.5px;
     color:#B9C0C9;
-    max-width:640px;
+    max-width:100%;
     margin-bottom:18px;
+    white-space: pre-line; /* Preserves your hyphenated bullet formatting */
   }
   .metrics{
     display:grid;
-    grid-template-columns:repeat(3, minmax(0,1fr));
-    gap:14px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Auto-fits cards based on screen size */
+    gap:12px;
     margin-bottom:16px;
-  }
-  @media (max-width:560px){
-    .metrics{ grid-template-columns:1fr 1fr; }
   }
   .metric{
     background:var(--panel-2);
@@ -242,12 +255,12 @@
   .metric .num{
     font-family:'JetBrains Mono', monospace;
     font-weight:500;
-    font-size:19px;
+    font-size:18px;
     color:var(--amber);
   }
   .metric .lbl{
     font-family:'JetBrains Mono', monospace;
-    font-size:10.5px;
+    font-size:10px;
     color:var(--muted);
     text-transform:uppercase;
     letter-spacing:0.04em;
@@ -267,20 +280,17 @@
     border-radius:2px;
   }
 
-  /* ---------- LOWER ---------- */
+  /* ---------- LOWER SECTION ---------- */
   .lower{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:28px;
-    padding:46px 0 60px;
-  }
-  @media (max-width:620px){
-    .lower{grid-template-columns:1fr;}
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Switches to single column on small screens */
+    gap:20px;
+    padding: clamp(28px, 5vw, 46px) 0 60px;
   }
   .box{
     border:1px solid var(--rule);
     border-radius:5px;
-    padding:26px;
+    padding: clamp(18px, 4vw, 26px);
     background:var(--panel);
   }
   .box h4{
@@ -298,19 +308,18 @@
     font-size:13px;
     color:var(--bg);
     background:var(--amber);
-    padding:9px 16px;
+    padding:10px 18px;
     border-radius:3px;
-    text-decoration:none;
     font-weight:500;
   }
   .contact-list{
     list-style:none;
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:12px;
   }
   .contact-list a{
-    text-decoration:none;
+    display: inline-block;
     font-size:14.5px;
     border-bottom:1px solid var(--rule);
     padding-bottom:2px;
@@ -338,36 +347,34 @@
     </div>
     <h1>Kartik</h1>
     <div class="role">Manager, Planning · Data Analyst</div>
-<p class="bio">
-  I am an <strong>Operations Planning Analyst</strong> at <strong>Zepto</strong>, where I manage high-volume data for the quick commerce business. My responsibilities include:
-</p>
+    <p class="bio">
+      I am an <strong>Operations Planning Analyst</strong> at <strong>Zepto</strong>, where I manage high-volume data for the quick commerce business. My responsibilities include:
+    </p>
 
-<ul class="bio-list">
-  <li>
-    <strong>Designing and maintaining analytical dashboards</strong>, including
-    <strong>Demand Planning</strong> and <strong>Minimum Stock Limit</strong>,
-    to analyze demand patterns and provide actionable inventory insights.
-  </li>
+    <ul class="bio-list">
+      <li>
+        <strong>Designing and maintaining analytical dashboards</strong>, including 
+        <strong>Demand Planning</strong> and <strong>Minimum Stock Limit</strong>, 
+        to analyze demand patterns and provide actionable inventory insights.
+      </li>
+      <li>
+        <strong>Building a priority pipeline</strong> to streamline inbound goods 
+        and align high-priority inventory with business performance goals.
+      </li>
+      <li>
+        <strong>Conducting Root Cause Analyses (RCAs)</strong> to identify 
+        operational gaps and recommend process improvements.
+      </li>
+      <li>
+        <strong>Leveraging Data Science and AI</strong> to develop accurate, 
+        data-driven reports that support effective and timely business decisions.
+      </li>
+    </ul>
 
-  <li>
-    <strong>Building a priority pipeline</strong> to streamline inbound goods
-    and align high-priority inventory with business performance goals.
-  </li>
-
-  <li>
-    <strong>Conducting Root Cause Analyses (RCAs)</strong> to identify
-    operational gaps and recommend process improvements.
-  </li>
-
-  <li>
-    <strong>Leveraging Data Science and AI</strong> to develop accurate,
-    data-driven reports that support effective and timely business decisions.
-  </li>
-</ul>
     <div class="stack">
       <span>SQL</span>
       <span>Python</span>
-      <span>Power BI / Tableau / Superset </span>
+      <span>Power BI / Tableau / Superset</span>
       <span>Airflow</span>
       <span>ETL</span>
       <span>Excel / Gsheet</span>
@@ -397,17 +404,17 @@
 
     <article class="project">
       <div class="project-head">
-        <h3>Minimum Stock Limit (MSL) </h3>
+        <h3>Minimum Stock Limit (MSL)</h3>
         <span class="badge">Deployed & Under Active Maintenance</span>
       </div>
-      <p class="desc">
-        Minimum Stock Level (MSL) or Critical SKU reports represents the ideal inventory quantity required to ensure consistent product availability and avoid stockouts.
-         In simple terms:
-          - It tells you how much stock you should maintain at a given location (City, Warehouse)
-          - It helps ensure high-demand products are always available for supply.
-          - It enables faster and more efficient replenishment decisions.
-          The MSL system continuously calculates inventory requirements at a granular level (SKU, city, warehouse, category) and updates data daily, already considering important parameters in calculations like Rate of Sale (ROS) and DOH (Days of handling), shelf life, etc..
-      </p>
+      <p class="desc">Minimum Stock Level (MSL) or Critical SKU reports represents the ideal inventory quantity required to ensure consistent product availability and avoid stockouts.
+
+In simple terms:
+- It tells you how much stock you should maintain at a given location (City, Warehouse)
+- It helps ensure high-demand products are always available for supply.
+- It enables faster and more efficient replenishment decisions.
+
+The MSL system continuously calculates inventory requirements at a granular level (SKU, city, warehouse, category) and updates data daily, considering parameters like Rate of Sale (ROS), Days of Handling (DOH), and shelf life.</p>
       <div class="metrics">
         <div class="metric"><div class="num">500+</div><div class="lbl">impressions / day</div></div>
         <div class="metric"><div class="num">5+</div><div class="lbl">Teams served</div></div>
@@ -423,15 +430,12 @@
     <article class="project">
       <div class="project-head">
         <h3>Darkstore Delta Solve</h3>
-        <span class="badge">Deployed | Ongoing Maintenance & Enhancements</span>
+        <span class="badge">Deployed | Maintenance & Enhancements</span>
       </div>
-      <p class="desc">
-        Built an inventory optimization engine to identify stock gaps across customer-serving stores and evaluate whether they could be fulfilled using available warehouse inventory.
-        The system recommends optimal replenishment allocations, quantifies recoverable demand, and pinpoints operational bottlenecks—such as planning exclusions, inventory shortages, storage limits, 
-        and transfer constraints—that prevent replenishment. This enables data-driven decisions to improve product availability and supply chain efficiency.
-      </p>
+      <p class="desc">Built an inventory optimization engine to identify stock gaps across customer-serving stores and evaluate whether they could be fulfilled using available warehouse inventory.
+
+The system recommends optimal replenishment allocations, quantifies recoverable demand, and pinpoints operational bottlenecks—such as planning exclusions, inventory shortages, storage limits, and transfer constraints—that prevent replenishment. This enables data-driven decisions to improve product availability and supply chain efficiency.</p>
       <div class="metrics">
-        <!--<div class="metric"><div class="num">850K</div><div class="lbl">Rows / run</div></div>-->
         <div class="metric"><div class="num">40%</div><div class="lbl">Error reduction</div></div>
         <div class="metric"><div class="num">2</div><div class="lbl">Teams served</div></div>
       </div>
@@ -444,14 +448,12 @@
 
     <article class="project">
       <div class="project-head">
-        <h3>Units to Order (U2O) & Demand Planning Overview </h3>
+        <h3>Units to Order (U2O) & Demand Planning</h3>
         <span class="badge">Maintained</span>
       </div>
-      <p class="desc">
-        Developed an interactive analytics dashboard that provides stakeholders with end-to-end visibility into historical sales trends and Units-to-Order (U2O) patterns across products, categories, and regions.
-        The dashboard enables demand planners, supply chain teams, and business stakeholders to analyze consumption patterns, forecast future demand, and make informed inventory planning decisions.
-        Consolidating key demand metrics into a single view, it improves planning accuracy, enhances cross-functional decision-making, and helps teams proactively prepare for demand fluctuations.
-      </p>
+      <p class="desc">Developed an interactive analytics dashboard that provides stakeholders with end-to-end visibility into historical sales trends and Units-to-Order (U2O) patterns across products, categories, and regions.
+
+The dashboard enables demand planners, supply chain teams, and business stakeholders to analyze consumption patterns, forecast future demand, and make informed inventory planning decisions. Consolidating key demand metrics into a single view improves planning accuracy and cross-functional decision-making.</p>
       <div class="metrics">
         <div class="metric"><div class="num">30+</div><div class="lbl">Weekly users</div></div>
         <div class="metric"><div class="num">15</div><div class="lbl">KPIs tracked</div></div>
@@ -474,7 +476,7 @@
     <div class="box">
       <h4>Get in touch</h4>
       <ul class="contact-list">
-        <li><a href="mailto:youremail@example.com">kavya.kartik@gmail.com</a></li>
+        <li><a href="mailto:kavya.kartik@gmail.com">kavya.kartik@gmail.com</a></li>
         <li><a href="https://www.linkedin.com/in/kavya-kartik-734285246/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://github.com/2k0v11" target="_blank" rel="noopener">GitHub</a></li>
       </ul>

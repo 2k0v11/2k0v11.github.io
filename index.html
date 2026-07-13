@@ -86,12 +86,33 @@
     margin-top:8px;
     letter-spacing:0.02em;
   }
-  header.top .bio{
-    max-width:640px;
+  .bio-wrapper{
+    max-width:760px;
+    margin-top:20px;
+}
+
+header.top .bio{
     color:#C6CBD3;
     font-size:16px;
-    margin-top:20px;
-  }
+    line-height:1.8;
+    margin-bottom:14px;
+}
+
+.bio-list{
+    color:#C6CBD3;
+    font-size:16px;
+    line-height:1.8;
+    padding-left:22px;
+}
+
+.bio-list li{
+    margin-bottom:10px;
+}
+
+.bio-list strong{
+    color:var(--text);
+    font-weight:600;
+}
   .stack{
     display:flex;
     flex-wrap:wrap;
@@ -329,41 +350,37 @@
 </head>
 <body>
 
-<div class="wrap">
+<div class="bio-wrapper">
 
-  <header class="top">
-    <div class="status-line">
-      <span><span class="dot"></span>Systems nominal — pipelines running</span>
-      <span id="today"></span>
-    </div>
-    <h1>Kartik</h1>
-    <div class="role">Manager, Planning · Data Analyst</div>
-<p class="bio">
-  I am an <strong>Operations Planning Analyst</strong> at <strong>Zepto</strong>, where I manage high-volume data for the quick commerce business. My responsibilities include:
-</p>
+  <p class="bio">
+    I am an <strong>Operations Planning Analyst</strong> at <strong>Zepto</strong>, specializing in demand planning, inventory optimization, and data-driven decision making.
+  </p>
 
-<ul class="bio-list">
-  <li>
-    <strong>Designing and maintaining analytical dashboards</strong>, including
-    <strong>Demand Planning</strong> and <strong>Minimum Stock Limit</strong>,
-    to analyze demand patterns and provide actionable inventory insights.
-  </li>
+  <ul class="bio-list">
+    <li>
+      <strong>Designed and maintained analytical dashboards</strong>, including
+      <strong>Demand Planning</strong> and <strong>Minimum Stock Limit</strong>,
+      to analyze demand patterns and deliver actionable inventory insights.
+    </li>
 
-  <li>
-    <strong>Building a priority pipeline</strong> to streamline inbound goods
-    and align high-priority inventory with business performance goals.
-  </li>
+    <li>
+      <strong>Built a priority pipeline</strong> to streamline inbound goods and
+      align high-priority inventory with business performance goals.
+    </li>
 
-  <li>
-    <strong>Conducting Root Cause Analyses (RCAs)</strong> to identify
-    operational gaps and recommend process improvements.
-  </li>
+    <li>
+      <strong>Performed Root Cause Analyses (RCAs)</strong> to identify
+      operational gaps and drive process improvements.
+    </li>
 
-  <li>
-    <strong>Leveraging Data Science and AI</strong> to develop accurate,
-    data-driven reports that support effective and timely business decisions.
-  </li>
-</ul>
+    <li>
+      <strong>Leveraged Data Science and AI</strong> to develop accurate,
+      data-driven reports that support faster, more informed business decisions.
+    </li>
+
+  </ul>
+
+</div>
     <div class="stack">
       <span>SQL</span>
       <span>Python</span>

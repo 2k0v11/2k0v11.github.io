@@ -32,7 +32,7 @@
     font-family:'Inter', sans-serif;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    overflow-x: hidden; /* Prevents unwanted horizontal scrolling on small viewports */
+    overflow-x: hidden;
   }
 
   a{color:inherit; text-decoration: none;}
@@ -45,7 +45,7 @@
     width: 100%;
     max-width:960px;
     margin:0 auto;
-    padding:0 clamp(16px, 4vw, 28px); /* Responsive fluid padding */
+    padding:0 clamp(16px, 4vw, 28px);
   }
 
   code, .mono{ font-family:'JetBrains Mono', monospace; }
@@ -57,7 +57,7 @@
   }
   .status-line{
     display:flex;
-    justify-space:between;
+    justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
     gap:10px;
@@ -88,28 +88,58 @@
     margin-top:8px;
     letter-spacing:0.02em;
   }
-  header.top .bio{
-    max-width:640px;
-    color:#C6CBD3;
-    font-size:clamp(14.5px, 2vw, 16px);
-    margin-top:16px;
+
+  /* Bio & Clean Custom Bullet Section */
+  header.top .bio {
+    max-width: 680px;
+    color: #9EA8B6;
+    font-size: clamp(14.5px, 2vw, 15.5px);
+    margin-top: 18px;
+    line-height: 1.6;
   }
-  
+
+  header.top .bio strong {
+    color: var(--text);
+  }
+
   .bio-list {
-    margin-top: 12px;
-    margin-left: 20px;
-    color: #C6CBD3;
-    font-size: clamp(14px, 1.8vw, 15px);
+    list-style: none;
+    margin-top: 16px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
+
   .bio-list li {
-    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+    font-size: clamp(13.5px, 1.8vw, 14.5px);
+    color: #B9C0C9;
+    line-height: 1.55;
+  }
+
+  .bio-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--amber);
+    border-radius: 1px;
+  }
+
+  .bio-list li strong {
+    color: var(--text);
+    font-weight: 600;
   }
 
   .stack{
     display:flex;
     flex-wrap:wrap;
     gap:8px;
-    margin-top:22px;
+    margin-top:24px;
   }
   .stack span{
     font-family:'JetBrains Mono', monospace;
@@ -199,7 +229,7 @@
   }
   .pipeline-note b{ color:var(--teal); }
 
-  /* ---------- PROJECT / SYSTEM CARDS ---------- */
+  /* ---------- PROJECT CARDS ---------- */
   .projects{ padding-bottom:10px; }
   .project{
     background:var(--panel);
@@ -211,7 +241,7 @@
   }
   .project-head{
     display:flex;
-    justify-content:space-between;
+    justify-space:between;
     align-items:flex-start;
     gap:12px;
     flex-wrap:wrap;
@@ -231,7 +261,7 @@
     border:1px solid rgba(87,184,168,0.4);
     padding:4px 10px;
     border-radius:20px;
-    white-space:normal; /* Allows wrapping on small phone screens if tag is long */
+    white-space:normal;
     word-break: break-word;
   }
   .project p.desc{
@@ -239,11 +269,11 @@
     color:#B9C0C9;
     max-width:100%;
     margin-bottom:18px;
-    white-space: pre-line; /* Preserves your hyphenated bullet formatting */
+    white-space: pre-line;
   }
   .metrics{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Auto-fits cards based on screen size */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap:12px;
     margin-bottom:16px;
   }
@@ -283,7 +313,7 @@
   /* ---------- LOWER SECTION ---------- */
   .lower{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Switches to single column on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap:20px;
     padding: clamp(28px, 5vw, 46px) 0 60px;
   }
@@ -348,26 +378,21 @@
     <h1>Kartik</h1>
     <div class="role">Manager, Planning · Data Analyst</div>
     <p class="bio">
-      I am an <strong>Operations Planning Analyst</strong> at <strong>Zepto</strong>, where I manage high-volume data for the quick commerce business. My responsibilities include:
+      I am an <strong>Operations Planning Analyst</strong> at <strong>Zepto</strong>, managing high-volume supply chain data for the quick commerce ecosystem. My core ownership includes:
     </p>
 
     <ul class="bio-list">
       <li>
-        <strong>Designing and maintaining analytical dashboards</strong>, including 
-        <strong>Demand Planning</strong> and <strong>Minimum Stock Limit</strong>, 
-        to analyze demand patterns and provide actionable inventory insights.
+        <strong>Designing & maintaining analytical dashboards</strong> (Demand Planning, Minimum Stock Limit) to evaluate demand patterns and drive inventory actions.
       </li>
       <li>
-        <strong>Building a priority pipeline</strong> to streamline inbound goods 
-        and align high-priority inventory with business performance goals.
+        <strong>Building priority pipelines</strong> to streamline inbound logistics and align inventory velocity with performance goals.
       </li>
       <li>
-        <strong>Conducting Root Cause Analyses (RCAs)</strong> to identify 
-        operational gaps and recommend process improvements.
+        <strong>Conducting Root Cause Analyses (RCAs)</strong> to surface operational gaps and optimize process workflows.
       </li>
       <li>
-        <strong>Leveraging Data Science and AI</strong> to develop accurate, 
-        data-driven reports that support effective and timely business decisions.
+        <strong>Leveraging Data Science & AI</strong> to deliver automated, actionable intelligence for time-critical decisions.
       </li>
     </ul>
 

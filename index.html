@@ -337,20 +337,22 @@
       <span id="today"></span>
     </div>
     <h1>Kartik</h1>
-    <div class="role">Manager, Planning Analyst · Data Analyst</div>
+    <div class="role">Manager, Planning · Data Analyst</div>
     <p class="bio">
-      I design, automate, and maintain end-to-end data pipelines that power planning and
-      decision-making — from raw ingestion to dashboards leadership actually trusts. Currently
-      responsible for the full lifecycle of [Company]'s core planning pipelines: build, automation,
-      monitoring, and recovery.
+      I am an Operations Planning Analyst at Zepto, where I manage high-volume data for the quick commerce business. My responsibilities include:
+       • Designing and maintaining analytical dashboards such as Demand Planning and Minimum Stock Limit, which drive demand pattern analysis and provide inventory insights.
+       • Building a priority pipeline to streamline inbound goods and align high-priority inventory with business performance goals.
+       • Conducting root cause analyses (RCAs) to identify gaps and determine areas for improvement.
+      
+      My focus is on leveraging Data Science and AI to build accurate, data-driven reports that enable effective and timely business decisions.
     </p>
     <div class="stack">
       <span>SQL</span>
       <span>Python</span>
-      <span>Power BI</span>
+      <span>Power BI / Tableau / Superset </span>
       <span>Airflow</span>
       <span>ETL</span>
-      <span>Excel / VBA</span>
+      <span>Excel / Gsheet</span>
     </div>
   </header>
 
@@ -377,12 +379,16 @@
 
     <article class="project">
       <div class="project-head">
-        <h3>Name of Your Major Pipeline</h3>
-        <span class="badge">In Production</span>
+        <h3>Minimum Stock Limit (MSL) </h3>
+        <span class="badge">In Maintenance</span>
       </div>
       <p class="desc">
-        One or two sentences on what this pipeline does — e.g. what data it moves, what report or
-        planning process it feeds, and the manual process it replaced.
+        Minimum Stock Level (MSL) or Critical SKU reports represents the ideal inventory quantity required to ensure consistent product availability and avoid stockouts.
+         In simple terms:
+          - It tells you how much stock you should maintain at a given location (City, Warehouse)
+          - It helps ensure high-demand products are always available for supply.
+          - It enables faster and more efficient replenishment decisions.
+          The MSL system continuously calculates inventory requirements at a granular level (SKU, city, warehouse, category) and updates data daily, already considering important parameters in calculations like Rate of Sale (ROS) and DOH (Days of handling), shelf life, etc..
       </p>
       <div class="metrics">
         <div class="metric"><div class="num">2.4M</div><div class="lbl">Records / day</div></div>
@@ -393,18 +399,19 @@
         <span>Python</span>
         <span>SQL Server</span>
         <span>Airflow</span>
-        <span>Power BI</span>
+        <span>Superset</span>
       </div>
     </article>
 
     <article class="project">
       <div class="project-head">
-        <h3>Second Pipeline or Automation Project</h3>
+        <h3>Darkstore Delta Solve</h3>
         <span class="badge">In Production</span>
       </div>
       <p class="desc">
-        Description of the automation — what was manual before, what you built, and the outcome for
-        the planning team.
+        Built an inventory optimization engine to identify stock gaps across customer-serving stores and evaluate whether they could be fulfilled using available warehouse inventory.
+        The system recommends optimal replenishment allocations, quantifies recoverable demand, and pinpoints operational bottlenecks—such as planning exclusions, inventory shortages, storage limits, 
+        and transfer constraints—that prevent replenishment. This enables data-driven decisions to improve product availability and supply chain efficiency.
       </p>
       <div class="metrics">
         <div class="metric"><div class="num">850K</div><div class="lbl">Rows / run</div></div>
@@ -420,12 +427,13 @@
 
     <article class="project">
       <div class="project-head">
-        <h3>Third Project — Dashboard or Report Suite</h3>
+        <h3>Units to Order (U2O) & Demand Planning Overview </h3>
         <span class="badge">Maintained</span>
       </div>
       <p class="desc">
-        Description of a planning dashboard or reporting suite you built and maintain, and who
-        relies on it.
+        Developed an interactive analytics dashboard that provides stakeholders with end-to-end visibility into historical sales trends and Units-to-Order (U2O) patterns across products, categories, and regions.
+        The dashboard enables demand planners, supply chain teams, and business stakeholders to analyze consumption patterns, forecast future demand, and make informed inventory planning decisions.
+        Consolidating key demand metrics into a single view, it improves planning accuracy, enhances cross-functional decision-making, and helps teams proactively prepare for demand fluctuations.
       </p>
       <div class="metrics">
         <div class="metric"><div class="num">30+</div><div class="lbl">Weekly users</div></div>
@@ -433,8 +441,7 @@
         <div class="metric"><div class="num">Daily</div><div class="lbl">Refresh cadence</div></div>
       </div>
       <div class="project-tags">
-        <span>Power BI</span>
-        <span>DAX</span>
+        <span>Superset</span>
         <span>SQL</span>
       </div>
     </article>
@@ -450,8 +457,8 @@
     <div class="box">
       <h4>Get in touch</h4>
       <ul class="contact-list">
-        <li><a href="mailto:youremail@example.com">youremail@example.com</a></li>
-        <li><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:youremail@example.com">kavya.kartik@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/kavya-kartik-734285246/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://github.com/2k0v11" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>

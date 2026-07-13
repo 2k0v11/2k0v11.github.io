@@ -3,23 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kartik — Writer</title>
+<title>Kartik — Data Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1B2430;
-    --ink-deep:#141B24;
-    --paper:#F7F3E8;
-    --paper-dim:#EFE9D8;
-    --gold:#C9A24B;
-    --slate:#8B93A1;
-    --offwhite:#FAFAF7;
-    --rule: rgba(247,243,232,0.14);
+    --bg:#10151C;
+    --panel:#171E27;
+    --panel-2:#1D2530;
+    --amber:#E8933C;
+    --teal:#57B8A8;
+    --text:#E7EAEE;
+    --muted:#7C8898;
+    --rule: rgba(231,234,238,0.09);
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
-
   html{scroll-behavior:smooth;}
 
   @media (prefers-reduced-motion: reduce){
@@ -28,8 +27,8 @@
   }
 
   body{
-    background:var(--ink);
-    color:var(--offwhite);
+    background:var(--bg);
+    color:var(--text);
     font-family:'Inter', sans-serif;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
@@ -37,86 +36,88 @@
 
   a{color:inherit;}
   a:focus-visible, button:focus-visible{
-    outline:2px solid var(--gold);
+    outline:2px solid var(--amber);
     outline-offset:3px;
   }
 
   .wrap{
-    max-width:920px;
+    max-width:960px;
     margin:0 auto;
     padding:0 28px;
   }
 
-  /* ---------- MASTHEAD ---------- */
-  .masthead{
+  code, .mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* ---------- HEADER ---------- */
+  header.top{
     border-bottom:1px solid var(--rule);
-    padding:56px 0 28px;
+    padding:48px 0 34px;
   }
-  .masthead-top{
+  .status-line{
     display:flex;
     justify-content:space-between;
-    align-items:baseline;
-    flex-wrap:wrap;
-    gap:12px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--slate);
-    margin-bottom:22px;
-  }
-  .masthead h1{
-    font-family:'Lora', serif;
-    font-weight:700;
-    font-size:clamp(40px, 7vw, 68px);
-    letter-spacing:-0.01em;
-    color:var(--offwhite);
-  }
-  .masthead .role{
-    font-family:'Lora', serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:19px;
-    color:var(--gold);
-    margin-top:6px;
-  }
-
-  /* ---------- ABOUT ---------- */
-  .about{
-    padding:40px 0 48px;
-    border-bottom:1px solid var(--rule);
-  }
-  .about p{
-    font-size:17px;
-    color:#DCE0E6;
-    max-width:640px;
-  }
-  .about .beats{
-    display:flex;
+    align-items:center;
     flex-wrap:wrap;
     gap:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:var(--muted);
+    margin-bottom:26px;
+  }
+  .status-line .dot{
+    display:inline-block;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--teal);
+    margin-right:7px;
+    box-shadow:0 0 0 3px rgba(87,184,168,0.15);
+  }
+  header.top h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(38px, 6.5vw, 58px);
+    letter-spacing:-0.01em;
+  }
+  header.top .role{
+    font-family:'JetBrains Mono', monospace;
+    font-size:14px;
+    color:var(--amber);
+    margin-top:8px;
+    letter-spacing:0.02em;
+  }
+  header.top .bio{
+    max-width:640px;
+    color:#C6CBD3;
+    font-size:16px;
+    margin-top:20px;
+  }
+  .stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
     margin-top:22px;
   }
-  .beats span{
-    font-family:'IBM Plex Mono', monospace;
+  .stack span{
+    font-family:'JetBrains Mono', monospace;
     font-size:11.5px;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    color:var(--gold);
-    border:1px solid rgba(201,162,75,0.4);
+    letter-spacing:0.03em;
+    color:var(--teal);
+    border:1px solid rgba(87,184,168,0.35);
     padding:5px 11px;
     border-radius:2px;
+    background:rgba(87,184,168,0.05);
   }
 
   /* ---------- SECTION LABEL ---------- */
   .section-label{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'JetBrains Mono', monospace;
     font-size:12px;
-    letter-spacing:0.14em;
+    letter-spacing:0.12em;
     text-transform:uppercase;
-    color:var(--slate);
-    padding-top:44px;
-    margin-bottom:20px;
+    color:var(--muted);
+    padding-top:46px;
+    margin-bottom:22px;
     display:flex;
     align-items:center;
     gap:14px;
@@ -128,114 +129,179 @@
     background:var(--rule);
   }
 
-  /* ---------- CLIPS (signature element: press-index entries) ---------- */
-  .clips{
-    padding-bottom:20px;
+  /* ---------- PIPELINE DIAGRAM (signature element) ---------- */
+  .pipeline{
+    padding:6px 0 8px;
   }
-  .clip{
-    background:var(--paper);
-    color:var(--ink);
-    border-radius:3px;
-    padding:26px 30px;
-    margin-bottom:18px;
+  .pipeline-flow{
+    display:flex;
+    align-items:center;
+    overflow-x:auto;
+    padding-bottom:6px;
+  }
+  .stage{
+    flex:0 0 auto;
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:16px 18px;
+    min-width:128px;
+    text-align:center;
+  }
+  .stage .icon{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--amber);
+    margin-bottom:8px;
+    letter-spacing:0.05em;
+  }
+  .stage .label{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+  }
+  .connector{
+    flex:0 0 auto;
+    width:34px;
+    height:1px;
+    background:linear-gradient(90deg, var(--rule), var(--teal), var(--rule));
     position:relative;
-    overflow:hidden;
-    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    margin:0 2px;
   }
-  .clip::before{
+  .connector::after{
     content:"";
     position:absolute;
-    left:0; top:0; bottom:0;
-    width:4px;
-    background:var(--gold);
+    right:0; top:-3px;
+    width:0; height:0;
+    border-top:3px solid transparent;
+    border-bottom:3px solid transparent;
+    border-left:5px solid var(--teal);
   }
-  .clip:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.35);
-  }
-  .clip-dateline{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:#7A6A3F;
-    margin-bottom:10px;
-  }
-  .clip-dateline b{ color:var(--ink); }
-  .clip h3{
-    font-family:'Lora', serif;
-    font-weight:600;
-    font-size:23px;
-    line-height:1.3;
-    margin-bottom:10px;
-  }
-  .clip h3 a{
-    text-decoration:none;
-    border-bottom:1px solid transparent;
-  }
-  .clip h3 a:hover{
-    border-bottom-color:var(--ink);
-  }
-  .clip .dek{
-    font-size:15px;
-    color:#3D4551;
-    margin-bottom:14px;
-    max-width:600px;
-  }
-  .clip .pull{
-    font-family:'Lora', serif;
-    font-style:italic;
-    font-size:15px;
-    color:#5A4E2E;
-    border-left:2px solid var(--gold);
-    padding-left:14px;
-  }
-  .clip-link{
-    display:inline-block;
-    margin-top:16px;
-    font-family:'IBM Plex Mono', monospace;
+  .pipeline-note{
+    font-family:'JetBrains Mono', monospace;
     font-size:12px;
-    letter-spacing:0.04em;
-    text-decoration:none;
-    color:var(--ink);
-    border-bottom:1px solid var(--ink);
-    padding-bottom:2px;
+    color:var(--muted);
+    margin-top:14px;
   }
-  .clip-link:hover{ color:#7A6A3F; border-color:#7A6A3F; }
+  .pipeline-note b{ color:var(--teal); }
 
-  /* ---------- RESUME / CONTACT ---------- */
+  /* ---------- PROJECT / SYSTEM CARDS ---------- */
+  .projects{ padding-bottom:10px; }
+  .project{
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-radius:5px;
+    padding:26px 28px;
+    margin-bottom:18px;
+    position:relative;
+  }
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .project h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:21px;
+  }
+  .badge{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--teal);
+    border:1px solid rgba(87,184,168,0.4);
+    padding:4px 10px;
+    border-radius:20px;
+    white-space:nowrap;
+  }
+  .project p.desc{
+    font-size:14.5px;
+    color:#B9C0C9;
+    max-width:640px;
+    margin-bottom:18px;
+  }
+  .metrics{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:14px;
+    margin-bottom:16px;
+  }
+  @media (max-width:560px){
+    .metrics{ grid-template-columns:1fr 1fr; }
+  }
+  .metric{
+    background:var(--panel-2);
+    border-radius:4px;
+    padding:12px 14px;
+  }
+  .metric .num{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:500;
+    font-size:19px;
+    color:var(--amber);
+  }
+  .metric .lbl{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-top:3px;
+  }
+  .project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .project-tags span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    border:1px solid var(--rule);
+    padding:4px 9px;
+    border-radius:2px;
+  }
+
+  /* ---------- LOWER ---------- */
   .lower{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:28px;
-    padding:44px 0 60px;
+    padding:46px 0 60px;
   }
   @media (max-width:620px){
     .lower{grid-template-columns:1fr;}
   }
   .box{
     border:1px solid var(--rule);
-    border-radius:3px;
+    border-radius:5px;
     padding:26px;
+    background:var(--panel);
   }
   .box h4{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'JetBrains Mono', monospace;
     font-size:12px;
-    letter-spacing:0.1em;
+    letter-spacing:0.08em;
     text-transform:uppercase;
-    color:var(--gold);
+    color:var(--amber);
     margin-bottom:14px;
   }
-  .box p{ font-size:14.5px; color:#C7CCD4; margin-bottom:14px;}
+  .box p{ font-size:14.5px; color:#B9C0C9; margin-bottom:14px;}
   .box a.cta{
     display:inline-block;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'JetBrains Mono', monospace;
     font-size:13px;
-    color:var(--ink);
-    background:var(--gold);
+    color:var(--bg);
+    background:var(--amber);
     padding:9px 16px;
-    border-radius:2px;
+    border-radius:3px;
     text-decoration:none;
+    font-weight:500;
   }
   .contact-list{
     list-style:none;
@@ -249,14 +315,14 @@
     border-bottom:1px solid var(--rule);
     padding-bottom:2px;
   }
-  .contact-list a:hover{ color:var(--gold); }
+  .contact-list a:hover{ color:var(--amber); }
 
   footer{
     border-top:1px solid var(--rule);
     padding:24px 0 40px;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'JetBrains Mono', monospace;
     font-size:11.5px;
-    color:var(--slate);
+    color:var(--muted);
     text-align:center;
   }
 </style>
@@ -265,54 +331,112 @@
 
 <div class="wrap">
 
-  <header class="masthead">
-    <div class="masthead-top">
-      <span>Vol. 1 — Est. 2026</span>
+  <header class="top">
+    <div class="status-line">
+      <span><span class="dot"></span>Systems nominal — pipelines running</span>
       <span id="today"></span>
     </div>
     <h1>Kartik</h1>
-    <div class="role">Associate Writer</div>
+    <div class="role">Manager, Planning Analyst · Data Analyst</div>
+    <p class="bio">
+      I design, automate, and maintain end-to-end data pipelines that power planning and
+      decision-making — from raw ingestion to dashboards leadership actually trusts. Currently
+      responsible for the full lifecycle of [Company]'s core planning pipelines: build, automation,
+      monitoring, and recovery.
+    </p>
+    <div class="stack">
+      <span>SQL</span>
+      <span>Python</span>
+      <span>Power BI</span>
+      <span>Airflow</span>
+      <span>ETL</span>
+      <span>Excel / VBA</span>
+    </div>
   </header>
 
-  <section class="about">
-    <p>
-      I write reported features and essays at the intersection of [your beat — e.g. technology and culture].
-      Byline in [Publication A], [Publication B], and [Publication C]. Currently an associate writer
-      at [Current Publication], where I cover [topic].
-    </p>
-    <div class="beats">
-      <span>Reporting</span>
-      <span>Essays</span>
-      <span>Interviews</span>
+  <div class="section-label">What I Own</div>
+
+  <section class="pipeline">
+    <div class="pipeline-flow">
+      <div class="stage"><div class="icon">01</div><div class="label">Ingest</div></div>
+      <div class="connector"></div>
+      <div class="stage"><div class="icon">02</div><div class="label">Transform</div></div>
+      <div class="connector"></div>
+      <div class="stage"><div class="icon">03</div><div class="label">Validate</div></div>
+      <div class="connector"></div>
+      <div class="stage"><div class="icon">04</div><div class="label">Load</div></div>
+      <div class="connector"></div>
+      <div class="stage"><div class="icon">05</div><div class="label">Monitor</div></div>
     </div>
+    <p class="pipeline-note">Ownership: <b>end-to-end</b> — from source system to stakeholder dashboard, including on-call fixes when a pipeline breaks.</p>
   </section>
 
-  <div class="section-label">Selected Clips</div>
+  <div class="section-label">Pipelines & Projects</div>
 
-  <section class="clips">
+  <section class="projects">
 
-    <article class="clip">
-      <div class="clip-dateline"><b>Publication Name</b> — Month 2026</div>
-      <h3><a href="#">Headline of Your Published Piece Goes Here</a></h3>
-      <p class="dek">One or two sentences describing what the piece is about and why it matters — the same way a magazine dek would frame it for a reader.</p>
-      <p class="pull">"A short pull-quote from the piece that captures your voice."</p>
-      <a class="clip-link" href="#" target="_blank" rel="noopener">Read the piece →</a>
+    <article class="project">
+      <div class="project-head">
+        <h3>Name of Your Major Pipeline</h3>
+        <span class="badge">In Production</span>
+      </div>
+      <p class="desc">
+        One or two sentences on what this pipeline does — e.g. what data it moves, what report or
+        planning process it feeds, and the manual process it replaced.
+      </p>
+      <div class="metrics">
+        <div class="metric"><div class="num">2.4M</div><div class="lbl">Records / day</div></div>
+        <div class="metric"><div class="num">99.6%</div><div class="lbl">Uptime</div></div>
+        <div class="metric"><div class="num">12 hrs</div><div class="lbl">Saved / week</div></div>
+      </div>
+      <div class="project-tags">
+        <span>Python</span>
+        <span>SQL Server</span>
+        <span>Airflow</span>
+        <span>Power BI</span>
+      </div>
     </article>
 
-    <article class="clip">
-      <div class="clip-dateline"><b>Publication Name</b> — Month 2026</div>
-      <h3><a href="#">Another Clip Headline</a></h3>
-      <p class="dek">Short description of the story, the reporting behind it, or the angle you took.</p>
-      <p class="pull">"Another representative line from the piece."</p>
-      <a class="clip-link" href="#" target="_blank" rel="noopener">Read the piece →</a>
+    <article class="project">
+      <div class="project-head">
+        <h3>Second Pipeline or Automation Project</h3>
+        <span class="badge">In Production</span>
+      </div>
+      <p class="desc">
+        Description of the automation — what was manual before, what you built, and the outcome for
+        the planning team.
+      </p>
+      <div class="metrics">
+        <div class="metric"><div class="num">850K</div><div class="lbl">Rows / run</div></div>
+        <div class="metric"><div class="num">40%</div><div class="lbl">Error reduction</div></div>
+        <div class="metric"><div class="num">6</div><div class="lbl">Teams served</div></div>
+      </div>
+      <div class="project-tags">
+        <span>Excel VBA</span>
+        <span>SQL</span>
+        <span>Scheduled Jobs</span>
+      </div>
     </article>
 
-    <article class="clip">
-      <div class="clip-dateline"><b>Publication Name</b> — Month 2026</div>
-      <h3><a href="#">Third Clip Headline</a></h3>
-      <p class="dek">Short description of the story here.</p>
-      <p class="pull">"A third pull-quote."</p>
-      <a class="clip-link" href="#" target="_blank" rel="noopener">Read the piece →</a>
+    <article class="project">
+      <div class="project-head">
+        <h3>Third Project — Dashboard or Report Suite</h3>
+        <span class="badge">Maintained</span>
+      </div>
+      <p class="desc">
+        Description of a planning dashboard or reporting suite you built and maintain, and who
+        relies on it.
+      </p>
+      <div class="metrics">
+        <div class="metric"><div class="num">30+</div><div class="lbl">Weekly users</div></div>
+        <div class="metric"><div class="num">15</div><div class="lbl">KPIs tracked</div></div>
+        <div class="metric"><div class="num">Daily</div><div class="lbl">Refresh cadence</div></div>
+      </div>
+      <div class="project-tags">
+        <span>Power BI</span>
+        <span>DAX</span>
+        <span>SQL</span>
+      </div>
     </article>
 
   </section>
@@ -320,7 +444,7 @@
   <div class="lower">
     <div class="box">
       <h4>Resume</h4>
-      <p>Download a full CV including education, past newsrooms, and awards.</p>
+      <p>Full CV including tools, past roles, and pipeline ownership history.</p>
       <a class="cta" href="resume.pdf" target="_blank" rel="noopener">Download PDF</a>
     </div>
     <div class="box">
@@ -328,7 +452,7 @@
       <ul class="contact-list">
         <li><a href="mailto:youremail@example.com">youremail@example.com</a></li>
         <li><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://twitter.com/yourhandle" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://github.com/2k0v11" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>
   </div>
